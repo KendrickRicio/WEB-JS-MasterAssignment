@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Citizen Directory</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="carousel.css">
+    <style>
+    </style>
+</head>
+<body class="stop-transition">
+    <header>
+        <div class="nav-label-wrapper">
+            <div class="title">
+                <a href="index.html">SC Directory</a>
+            </div>
+            <input type="checkbox" id="navbox-check">
+            <label for="navbox-check" class="navbox-toggle">
+                <span></span>
+            </label>
+            <nav class='navbar'>
+                <ul>
+                    <li><a href="guide.html">Guide</a></li>
+                    <li><a href="starter.html">Starter</a></li>
+                    <li><a href="signup.html">Join</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="security.html">Security</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+    <div id="wrapper">
+        <section class="computerProperties">
+            <h1>Computer Properties.</h1>
+            <h2>What kind of properties of your computer can web apps access?</h2>
+            <p>Here are six of the many properties a web application can access to learn more about your computer:</p>
+            <br>
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th colspan="2" style="text-align: center;">Properties</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>onLine</td>
+                    <td>Returns a boolean value indicating whether the browser currently has a network connection</td>
+                </tr>
+                <tr>
+                    <td>platform</td>
+                    <td>returns the operating system currently being used by the client computer</td>
+                </tr>
+                <tr>
+                    <td>userAgent</td>
+                    <td>returns a string stored in the HTTP user-agent request header containing information about<br>the browser, the platform name, and compatibility.</td>
+                </tr>
+                <tr>
+                    <td>availWidth</td>
+                    <td>returns the width of the display screen sans operating system features such as the taskbar</td>
+                </tr>
+                <tr>
+                    <td>colorDepth</td>
+                    <td>returns the display screen's depth if a color palette is in use.<br>returns the value of the pixelDepth property if a color palette is not in use</td>
+                </tr>
+                <tr>
+                    <td>pixelDepth</td>
+                    <td>returns the display screen's color resolution in bits per pixel</td>
+                </tr>
+                </tbody>
+            </table>
+            
+        </section>
+        <br><br><br><br>
+        <hr>
+        <br>
+        <h1>Practices for using the web safely</h1>
+        <p>Here are three different ideas you can practice to keep your computer and data safer online:</p>
+        <ol>
+            <li><a href="https://usa.kaspersky.com/resource-center/preemptive-safety/top-10-internet-safety-rules-and-what-not-to-do-online"><strong>Stay up to date with software and security updates.</strong></a><br>
+                They prevent vulnerabilities and exploits used by hackers to gain unintended access to your information.<br>
+                <a href="https://usa.kaspersky.com/resource-center/preemptive-safety/top-10-internet-safety-rules-and-what-not-to-do-online">This article from Kaspersky</a> provides information on how to stay safe online, including information on why you should stay up-to-date with your software.</li>
+            <li><a href="https://staysafeonline.org/"><strong>Use strong and unique passwords.</strong></a><br>
+                Strong passwords are almost entirely necessary to protect your online accounts.<br>
+                Unique passwords increase the surface area of your account security, drastically increasing the effort needed to gain access to your other accounts.<br>
+                Having only one unique password greatly reduces the unique points of attack to one to gain access to all your accounts.<br>
+                You can also consider getting a password manager.<br>
+                <a href="https://staysafeonline.org/">StaySafeOnline.org</a> is a national cybersecurity and online safety organization providing tips and resources on how to stay safe online.<br>It also provides information on how to generate safe passwords.</li>
+            <li><a href="https://safety.google/"><strong>Be careful what you click on and where you enter your information.</strong></a><br>
+                Phishing attacks use disguised links or forms to trick you into entering your information into the wrong areas.<br>
+                The <a href="https://safety.google/">Google Safety Center</a> provides information on how to stay safe online, giving information about online privacy, security, and safety.
+            </li>
+        </ol>
+        <br>
+        <hr>
+        <br><br><br><br>
+    </div>
+    </main>
+    <footer>
+        Kendrick Ricio<br>
+        STAR-T4BW-6D5D
+    </footer>
+    <script src="js/carousel.js"></script>
+    <script src="modernizr.custom.05819.js"></script>
+    <script>document.body.classList.remove('stop-transition')</script>
+</body>
+</html>

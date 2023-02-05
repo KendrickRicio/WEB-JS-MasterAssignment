@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <title>Star Citizen Starter</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        button {
+            background-color: #1b3241;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        #yes {
+            background-color: #1b3241;
+            border: 2px solid #4CAF50;
+        }
+        #yes:hover {
+            background-color: #4CAF50;
+        }
+        #no {
+            background-color: #1b3241;
+            border: 2px solid #af4c4c;
+        }
+        #no:hover {
+            background-color: #af4c4c;
+        }
+
+    </style>
+</head>
+<body class="stop-transition">
+    <header>
+        <div class="nav-label-wrapper">
+            <div class="title">
+                <a href="index.html">SC Directory</a>
+            </div>
+            <input type="checkbox" id="navbox-check">
+            <label for="navbox-check" class="navbox-toggle">
+                <span></span>
+            </label>
+            <nav class='navbar'>
+                <ul>
+                    <li><a href="guide.html">Guide</a></li>
+                    <li><a href="starter.html">Starter</a></li>
+                    <li><a href="signup.html">Join</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="security.html">Security</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div id="wrapper">
+            <section class="starter">
+                <br>
+                <h1>Pick a Game Package!</h1>
+                <p>To play Star Citizen, you will need a <strong>Game Package</strong>.<br>
+                    A Game Package includes both a ship and a digital copy of the game.</p>
+                <p>Answer the questions to find the perfect starter ship for you!</p>
+                <br><br><br>
+                <div id="question"><h2>Are you you strapped on money?</h2></div>
+                <br><br><br>
+                <button type="button" id="yes">Yes</button> <button type="button" id="no">No</button>
+                <br><br>
+                <br>
+                <hr>
+            </section>
+            <br><br>
+            <section>
+                <p>Interested in buying more ships in-game?<br>
+                Check ships off in the box below to see how<br>
+                many credits you have to pay to buy them<br>
+                in-game!</p>
+                <br><br>
+                <div style="font-size: 24px; font-weight: bold;">
+                    <span>TOTAL COST:</span> <span id="total">0</span> AUEC
+                </div>
+                <div style="min-width: 160px; min-height: 160px; height: 320px; overflow-y: auto; background-color: #213844; border-style: solid;">
+                    <form id="shipForm"></form>
+                </div>
+                <br><br><br><br>
+            </section>
+        </div>
+    </main>
+    <footer>
+        Kendrick Ricio<br>
+        STAR-T4BW-6D5D
+    </footer>
+    <script>
+        const result = document.getElementById("result");
+        const yesBtn = document.getElementById("yes");
+        const noBtn = document.getElementById("no");
+        let currentQuestion = 1;
+
+        if (yesBtn.addEventListener) {
+            yesBtn.addEventListener("click", handleYesBtnClick, false);
+        } else if (yesBtn.attachEvent) {
+            yesBtn.attachEvent("onclick", handleYesBtnClick);
+        }
+        if (noBtn.addEventListener) {
+            noBtn.addEventListener("click", handleNoBtnClick, false);
+        } else if (noBtn.attachEvent) {
+            noBtn.attachEvent("onclick", handleNoBtnClick);
+        }
+        // yesBtn.addEventListener("click", handleYesBtnClick);
+        // noBtn.addEventListener("click", handleNoBtnClick);
+
+        function handleYesBtnClick() {
+            switch(currentQuestion) {
+                case 0:
+                    replaceQuestion("Are you you strapped on money?");
+                    yesBtn.innerHTML = "Yes";
+                    noBtn.style.visibility="visible";
+                    break;
+                case 1:
+                    replaceQuestion("Are you into ship fighting?");
+                    break;
+                case 2:
+                    finish("The Mustang Alpha might be the starter ship for you!");
+                    break;
+                case 3:
+                    finish("The Cutlass Black might be the starter ship for you!")
+                    break;
+                case 4:
+                    replaceQuestion("Do you want a fancy touring ship?");
+                    break;
+                case 5:
+                    finish("The Origin 100i might be the starter ship for you!")
+                    break;
+                case 6:
+                    finish("The Anvil Arrow might be the starter ship for you!")
+                    break;
+                case 7:
+                    finish("The Anvil C8X Expedition might be the starter ship for you!")
+                    break;
+                case 8:
+                    finish("The Anvil C8R might be the starter ship for you!")
+                    break;
+                case 9:
+                    finish("The Drake Cutter might be the starter ship for you!")
+                    break;
+                case 10:
+                    finish("The Avenger Titan might be the starter ship for you!")
+                    break;
+            }
+            console.log(currentQuestion);
+        }
+
+        function handleNoBtnClick() {
+            switch(currentQuestion) {
+                case 1:
+                    replaceQuestion("Do you want a multi-crew ship?");
+                    currentQuestion = 3;
+                    break;
+                case 2:
+                    finish("The Aurora MR might be the ship for you!");
+                    break;
+                case 3:
+                    replaceQuestion("Would you have a specialized ship over a multi-role ship?")
+                    break;
+                case 4:
+                    replaceQuestion("Do you want the cheapest multi-role ship?");
+                    currentQuestion = 9;
+                    break;
+                case 5:
+                    replaceQuestion("Are you interested in ship combat?")
+                    break;
+                case 6:
+                    replaceQuestion("Do you want a tiny ship that can fit into small spaces?")
+                    break;
+                case 7:
+                    replaceQuestion("Are you interested in medical gameplay?")
+                    break;
+                case 8:
+                    finish("The Avenger Titan, a multi-role ship, might be the starter ship for you.")
+                    break;
+                case 9:
+                    replaceQuestion("Do you care about combat?")
+                    break;
+                case 10:
+                    finish("The Nomad might be the starter ship for you!")
+                    break;
+            }
+            console.log(currentQuestion);
+        }
+
+        function replaceQuestion(text) {
+            question.innerHTML = "<h2>" + text + "</h2>";
+            currentQuestion++;
+        }
+
+        function finish(text) {
+            replaceQuestion(text);
+            //yesBtn.disabled = true;
+            //noBtn.disabled = true;
+            //yesBtn.style.visibility="hidden";
+            noBtn.style.visibility="hidden";
+            yesBtn.innerHTML = "&nbsp; &nbsp; &nbsp; Start Over&nbsp; &nbsp; &nbsp; ";
+            currentQuestion = 0;
+            //yesBtn.remove();
+            //noBtn.remove();
+        }
+
+    </script>
+    <script src="data/ships.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="modernizr.custom.05819.js"></script>
+    <script>document.body.classList.remove('stop-transition')</script>
+</body>
+</html>

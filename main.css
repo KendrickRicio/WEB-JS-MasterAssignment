@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@font-face { font-family: Jura; src: url('fonts/Jura-VariableFont_wght.ttf'); } 
+@font-face { font-family: Orbitron; src: url('fonts/Orbitron-VariableFont_wght.ttf');} 
+@font-face { font-family: Jura; src: url('fonts/Montserrat-VariableFont_wght.ttf'); } 
+body {
+    background-color: #39404B;
+    color: #C5C4C3;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.5;
+    font-family: Jura, sans-serif;
+}
+#wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header {
+    background-color: #0f191f;
+}
+section {
+    background: #39404B;
+    color: #eee;
+}
+h1 {
+    text-transform: uppercase;
+    color: #d6d6d6;
+    text-shadow: 0 0 16px #29668a;
+}
+footer {
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px 20px 25px 20px;
+    background-color: #283740;
+    color: #aaaaaa;
+    bottom: 0;
+}
+a {
+    text-decoration: none;
+    color: #aaaaaa;
+}
+a:hover {
+    color: #bbbbbb;
+}
+a:visited {
+    color: #727272;
+}
+p {
+    display: inline-block;
+}
+img {
+    border-radius: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}

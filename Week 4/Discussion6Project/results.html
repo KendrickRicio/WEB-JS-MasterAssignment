@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Pizza</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <h2>Your order has been submitted!</h2>
+      <h3>Your total is: $<span id="cost"></span>.</h3>
+      <br />
+      <hr />
+      <br />
+      <div class="results">
+        <h3>You entered the following data:</h3>
+        <script>
+          var formData = location.search;
+          formData = formData.substring(1, formData.length);
+          while (formData.indexOf("+") !== -1) {
+            formData = formData.replace("+", " ");
+          }
+          formData = decodeURIComponent(formData);
+          var formArray = formData.split("&");
+          for (var i = 1; i < formArray.length; i = i + 1) {
+            document.write(" <p> " + formArray[i] + " </p> <br> ");
+          }
+        </script>
+      </div>
+      <div>
+        <h3>
+          <a href="index.html">Return</a>
+        </h3>
+      </div>
+      <br />
+      <hr />
+      <br />
+    </div>
+    <footer>
+      Privacy Policy &nbsp;&nbsp;&nbsp; Terms of Use
+      <br /><br />
+      2023 CISIWEB PIZZA
+    </footer>
+    <script>
+      var cost = decodeURIComponent(location.search.split("&")[0].substr(25));
+      document.getElementById("cost").innerHTML = cost;
+    </script>
+  </body>
+</html>
