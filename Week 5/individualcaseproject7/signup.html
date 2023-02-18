@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+		<title>Star Citizen Sign-Up</title>
+		<link rel="stylesheet" href="main.css">
+		<style>
+			button {
+				background-color: #1b3241;
+				border: none;
+				color: white;
+				padding: 16px 32px;
+				text-align: center;
+				text-decoration: none;
+				font-size: 16px;
+				margin: 4px 2px;
+				transition-duration: 0.4s;
+				cursor: pointer;
+			}
+
+			#yes {
+				background-color: #1b3241;
+				border: 2px solid #4CAF50;
+			}
+
+			#yes:hover {
+				background-color: #4CAF50;
+			}
+
+			#no {
+				background-color: #1b3241;
+				border: 2px solid #af4c4c;
+			}
+
+			#no:hover {
+				background-color: #af4c4c;
+			}
+		</style>
+		<style>
+			input[type=text],
+			select,
+			textarea {
+				background-color: #1b3241;
+				color: white;
+				width: 100%;
+				padding: 12px;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				resize: vertical;
+			}
+
+			label {
+				padding: 12px 12px 12px 0;
+				display: inline-block;
+			}
+
+			input[type=submit] {
+				background-color: #04AA6D;
+				color: white;
+				padding: 12px 20px;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+				float: right;
+			}
+
+			input[type=submit]:hover {
+				background-color: #45a049;
+			}
+
+			.container {
+				border-radius: 5px;
+				background-color: #1b3241;
+				padding: 20px;
+			}
+
+			.col-25 {
+				float: left;
+				width: 25%;
+				margin-top: 6px;
+			}
+
+			.col-75 {
+				float: left;
+				width: 75%;
+				margin-top: 6px;
+			}
+
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+
+			@media screen and (max-width: 600px) {
+				.col-25,
+				.col-75,
+				input[type=submit] {
+					width: 100%;
+					margin-top: 0;
+				}
+			}
+		</style>
+	</head>
+	<body class="stop-transition">
+		<header>
+			<div class="nav-label-wrapper">
+				<div class="title">
+					<a href="index.html">SC Directory</a>
+				</div>
+				<input type="checkbox" id="navbox-check">
+				<label for="navbox-check" class="navbox-toggle">
+					<span></span>
+				</label>
+				<nav class='navbar'>
+					<ul>
+						<li><a href="guide.html">Guide</a></li>
+						<li><a href="starter.html">Starter</a></li>
+						<li><a href="signup.html">Join</a></li>
+						<li><a href="resources.html">Resources</a></li>
+						<li><a href="security.html">Security</a></li>
+						<li><a href="time.html">Time</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main>
+			<div id="wrapper">
+				<section class="signup">
+					<br>
+					<h1>Sign Up for the Organization!</h1>
+                    <br>
+					<div class="container">
+						<form action="signupresults.html">
+							<div class="row">
+								<div class="col-25">
+									<label for="inGameName">In-Game Name</label>
+								</div>
+								<div class="col-75">
+									<input type="text" id="inGameName" name="inGameName" placeholder="Your name...">
+									<p class="error" id="inGameNameError" style="display: none; color: #c97f7f;">Please enter a valid name with at least 5 characters.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-25">
+									<label for="shipsOwned">Ships Owned</label>
+								</div>
+								<div class="col-75">
+									<input type="text" id="shipsOwned" name="shipsOwned" placeholder="Ships Owned...">
+									<p class="error" id="shipsOwnedError" style="display: none; color: #c97f7f;">Please enter ships that you own.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-25">
+									<label for="division">Preferred Division</label>
+								</div>
+								<div class="col-75">
+									<select id="division" name="division">
+										<option value="">————Select————</option>
+										<option value="adventure">Adventure</option>
+										<option value="strikeforce">Strike Force</option>
+										<option value="boardingparty">Boarding Party</option>
+										<option value="planetaryassault">Planetary Assault</option>
+										<option value="cargo">Cargo</option>
+										<option value="rrr">RRR</option>
+										<option value="mining">Mining</option>
+										<option value="salvage">Salvage</option>
+									</select>
+									<p class="error" id="divisionError" style="display: none; color: #c97f7f;">Please select a division.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-25">
+									<label for="goal">What is your goal?</label>
+								</div>
+								<div class="col-75">
+									<textarea id="goal" name="goal" placeholder="Write something..." style="height:200px"></textarea>
+									<p class="error" id="goalError" style="display: none; color: #c97f7f;">Please write down a goal.</p>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<input type="submit" value="Submit">
+							</div>
+						</form>
+					</div>
+                    <div class="results">
+                        <p id="resultSuccess" style="max-width: 600px;"></p>
+                    </div>
+				</section>
+                <section class="summary">
+                    <p>I didn't use many debugging methods for this chapter, but the ones I used the most were commenting and console.log().</p>
+                    <p>
+                        I commented out parts of my code when I had some unintended logic errors in my code. It helped me isolate parts of
+                        my code out.
+                    </p>
+                    <p>
+                        Commenting out parts of your code helps you isolate parts of it and lets you observe how your program runs
+                        with parts of your code commented out.
+                    </p>
+                    <p>
+                        You use console.log() to print strings, variables, or any combination of the two to your console.
+                        This allows you to trace and fix bugs in your program by analyzing things quickly.
+                    </p>
+                    <p>
+                        Using console.log() helped me track specific variables and progress within the execution of my code. I used console.log()
+                        over debugging tools because I wanted to test for results as quickly as possible. I was able to check if parts of the code
+                        were being reached or not while testing things out.
+                    </p>
+                </section>
+			</div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		</main>
+		<footer> Kendrick Ricio <br> STAR-T4BW-6D5D </footer>
+		<script>
+			const form = document.querySelector('form');
+			form.addEventListener('submit', (e) => {
+				e.preventDefault();
+				let hasErrors = false;
+				const inGameName = document.querySelector('#inGameName').value;
+				const inGameNameError = document.querySelector('#inGameNameError');
+				if (!inGameName || inGameName.length < 5) {
+					inGameNameError.style.display = 'block';
+					hasErrors = true;
+				} else {
+					inGameNameError.style.display = 'none';
+				}
+				const shipsOwned = document.querySelector('#shipsOwned').value;
+				const shipsOwnedError = document.querySelector('#shipsOwnedError');
+				if (!shipsOwned || shipsOwned.length < 3) {
+					shipsOwnedError.style.display = 'block';
+					hasErrors = true;
+				} else {
+					shipsOwnedError.style.display = 'none';
+				}
+				const division = document.querySelector('#division').value;
+				const divisionError = document.querySelector('#divisionError');
+				if (!division) {
+					divisionError.style.display = 'block';
+					hasErrors = true;
+				} else {
+					divisionError.style.display = 'none';
+				}
+				const goal = document.querySelector('#goal').value;
+				const goalError = document.querySelector('#goalError');
+				if (!goal || goal.length < 4) {
+					goalError.style.display = 'block';
+					hasErrors = true;
+				} else {
+					goalError.style.display = 'none';
+				}
+				if (!hasErrors) {
+					document.getElementsByTagName("form")[0].submit();
+                    // const resultSuccess = document.querySelector("#resultSuccess");
+                    // resultSuccess.innerHTML = ("<br><br>" +
+                    // "<strong>Success! Your form has been completed.</strong>" + "<br>" +
+                    // "<strong>In-Game Name:</strong> " + inGameName + "<br>" +
+                    // "<strong>Ships Owned:</strong> " + shipsOwned + "<br>" +
+                    // "<strong>Preferred Division:</strong> " + division + "<br>" +
+                    // "<strong>What is your goal?:</strong> " + goal + "<br>" +
+                    // "<br><br><br>");
+				}
+			});
+		</script>
+		<script src="modernizr.custom.05819.js"></script>
+		<script>
+			document.body.classList.remove('stop-transition')
+		</script>
+	</body>
+</html>

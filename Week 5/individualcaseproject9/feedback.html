@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Star Citizen Time Elapsed</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="carousel.css" />
+    <style></style>
+  </head>
+  <body class="stop-transition">
+    <header>
+      <div class="nav-label-wrapper">
+        <div class="title">
+          <a href="index.html">SC Directory</a>
+        </div>
+        <input type="checkbox" id="navbox-check" />
+        <label for="navbox-check" class="navbox-toggle">
+          <span></span>
+        </label>
+        <nav class="navbar">
+          <ul>
+            <li><a href="guide.html">Guide</a></li>
+            <li><a href="starter.html">Starter</a></li>
+            <li><a href="signup.html">Join</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="security.html">Security</a></li>
+            <li><a href="time.html">Time</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div id="wrapper">
+        <section class="feedback">
+          <br />
+          <form id="feedback-form">
+            <h1>Feedback</h1>
+            <label for="feedback"><h2>What is your feedback about?</h2></label>
+            <br />
+            <input
+              type="checkbox"
+              name="feedback_options"
+              value="User Interface"
+            />
+            User Interface<br />
+            <input
+              type="checkbox"
+              name="feedback_options"
+              value="User Experience"
+            />
+            User Experience<br />
+            <input
+              type="checkbox"
+              name="feedback_options"
+              value="Performance"
+            />
+            Performance<br />
+            <input
+              type="checkbox"
+              name="feedback_options"
+              value="Accessibility"
+            />
+            Accessibility<br />
+            <input type="checkbox" name="feedback_options" value="Security" />
+            Security<br />
+            <br />
+            <label for="feedback-text"
+              ><h2>Please provide any additional details:</h2></label
+            >
+            <br />
+            <textarea
+              name="feedback_text"
+              id="feedback-text"
+              rows="5"
+            ></textarea>
+            <br />
+            <p
+              class="error"
+              id="textError"
+              style="visibility: hidden; color: #c97f7f"
+            >
+              Please enter valid feedback with no invalid characters.
+            </p>
+            <br />
+            <button type="submit">Submit Feedback</button>
+          </form>
+          <div id="feedback-response"></div>
+        </section>
+        <br /><br /><br /><br />
+        <br /><br /><br /><br />
+        <br /><br /><br /><br />
+        <br /><br /><br /><br />
+        <br /><br />
+      </div>
+    </main>
+    <footer>
+      Kendrick Ricio<br />
+      STAR-T4BW-6D5D
+    </footer>
+    <script>
+      const feedbackForm = document.getElementById("feedback-form");
+      const feedbackOptions = feedbackForm.querySelectorAll(
+        'input[type="checkbox"]'
+      );
+      const feedbackText = document.getElementById("feedback-text");
+      const feedbackResponse = document.getElementById("feedback-response");
+
+      feedbackForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const feedbackSelections = [];
+
+        feedbackOptions.forEach((option) => {
+          if (option.checked) {
+            feedbackSelections.push(option.value);
+          }
+        });
+
+        let feedbackPrint = "display: none;"
+
+        if (feedbackSelections.length == 0) {
+          feedbackPrint = "display: none;"
+        } else {
+          feedbackPrint = "display: block;"
+        }
+
+        const feedbackMessage = feedbackText.value.trim();
+        if (feedbackMessage.length < 5 || !feedbackMessage.match("^[^<>\\/&]*$")) {
+          textError.style.visibility = "visible";
+          feedbackResponse.innerHTML = "";
+          return;
+        } else {
+          textError.style.visibility = "hidden";
+        }
+
+        const feedbackList = feedbackSelections
+          .map((selection) => `<li>${selection}</li>`)
+          .join("");
+        feedbackResponse.innerHTML = `
+            <div style="border: 1px solid white; padding: 10px; margin-top: 20px; overflow: auto; overflow-wrap: break-word">
+                <table style="display: inline-block;">
+                <h3>Thank you for your feedback!</h3><br>
+                <span id="feedbackPrint" style="${feedbackPrint}">
+                  <p><strong>You selected the following options:</strong></p>
+                  <ul>${feedbackList}</ul>
+                </span>
+                <br>
+                <p><strong>Your additional feedback message:</strong></p><br>
+                <p>${feedbackMessage}</p>
+            </div>
+        `;
+        feedbackForm.reset();
+      });
+    </script>
+    <script src="modernizr.custom.05819.js"></script>
+    <script>
+      document.body.classList.remove("stop-transition");
+    </script>
+  </body>
+</html>
